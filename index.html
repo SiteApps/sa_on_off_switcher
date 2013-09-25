@@ -1,0 +1,36 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>SiteApps On/Off</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script type="text/javascript" src="sa_on_off/sa_on_off.js"></script>
+      <link href='sa_on_off/sa_on_off.css' rel='stylesheet' type='text/css'>
+
+      <script>
+         jQuery(function() {
+            jQuery(".sa_on_off").on('click', function() {
+               var event = jQuery.Event("run");
+               event.turn_on = function() {
+                  console.log('ligado!');
+               };
+               event.turn_off = function(obj) {
+                  console.log('desligado!' + obj.attr("id"));
+               };
+               jQuery(this).trigger(event);
+            });
+         });
+      </script>
+
+   </head>
+   <body>
+      <div class="sa_on_off" id="my1" data-current-state="on"></div>         
+      <div class="sa_on_off" id="my2" data-current-state="off"></div>         
+      <div class="sa_on_off" id="my3" data-current-state="on"></div>         
+   </body>
+</html>
